@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯信息索引 · 资料整理页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background-color: #f7f9fc;
+      color: #1e2b3a;
+      line-height: 1.7;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #0c1a2b 0%, #1a2f44 100%);
+      color: #f0f4fa;
+      padding: 4rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: #eeba2c;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .subhead {
+      font-size: 1.2rem;
+      font-weight: 300;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto 0.4rem;
+    }
+
+    .hero .info-tag {
+      display: inline-block;
+      margin-top: 1.2rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+    }
+
+    section {
+      margin: 3.2rem 0;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem 1.8rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.2s;
+      border: 1px solid #eef2f6;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #1a2f44;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2c4055;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 450;
+      margin-bottom: 1.2rem;
+      border-left: 5px solid #eeba2c;
+      padding-left: 1rem;
+      color: #0f1f30;
+    }
+
+    .faq-list {
+      background: white;
+      border-radius: 20px;
+      padding: 1.6rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e6ecf2;
+    }
+
+    .faq-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1a2f44;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .faq-a {
+      font-size: 0.92rem;
+      color: #3e5368;
+    }
+
+    .highlight-link {
+      color: #b8860b;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184, 134, 11, 0.3);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .highlight-link:hover {
+      color: #8b6914;
+      border-bottom-color: #8b6914;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      margin-top: 0.6rem;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid #2c4055;
+      border-radius: 40px;
+      color: #2c4055;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #1a2f44;
+      color: white;
+      border-color: #1a2f44;
+    }
+
+    .footer-links {
+      margin-top: 3.8rem;
+      padding: 2.5rem 0 2rem;
+      border-top: 1px solid #dce3eb;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #4d637b;
+    }
+
+    .footer-links a {
+      color: #1a2f44;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #c0cedc;
+    }
+
+    .footer-links a:hover {
+      text-decoration-color: #b8860b;
+      color: #b8860b;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 3rem 1.2rem;
+      }
+      .container {
+        padding: 0 1rem;
+      }
+      section {
+        margin: 2.2rem 0;
+      }
+      .faq-list {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>世界杯 · 资料索引</h1>
+    <p class="subhead">整理历届赛程、数据档案与观赛信息，方便快速查阅</p>
+    <div class="info-tag">版本 · 2025 年 3 月更新</div>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2 class="section-title">为什么需要一份整理好的索引</h2>
+      <p style="font-size:1rem; margin-bottom: 1.2rem;">
+        世界杯相关资讯分散在各种平台，从小组赛积分到淘汰赛对阵，从历史记录到最新动态，查找起来并不轻松。
+        这个页面把零散的信息线索汇总起来，按照主题分类，方便你快速定位需要的内容。
+        如果你正在关注 <a href="https://cn-go-sjb.com" class="highlight-link">世界杯</a> 的最新赛程或者历史数据，下面的整理框架或许能帮你节省时间。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">索引覆盖的几个方向</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>📅 赛程与战绩</h3>
+          <p>历届世界杯决赛圈分组、比赛时间、比分与晋级路线。支持按年份或大洲筛选。</p>
+        </div>
+        <div class="card">
+          <h3>🏆 球队与球星</h3>
+          <p>参赛队伍阵容、出场记录、进球数据。收录历届金靴、金球奖等荣誉名单。</p>
+        </div>
+        <div class="card">
+          <h3>📊 纪录与统计</h3>
+          <p>最多冠军、最长不败、最快进球等各类纪录。数据来自公开统计源并保持核对。</p>
+        </div>
+        <div class="card">
+          <h3>🌍 主办与场馆</h3>
+          <p>历届主办国、决赛场地、容量信息。附各届官方会徽与吉祥物资料。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">信息整理的方式</h2>
+      <p style="margin-bottom: 1rem;">
+        所有条目均基于公开可查的资料进行汇编，并标注了主要参考来源。索引本身不生产独家数据，
+        而是提供一个清晰的入口——你可以在一个地方浏览摘要，再决定是否需要进一步查阅详细页面。
+        例如，想快速回顾某届世界杯的淘汰赛对阵，直接进入对应的赛程卡片即可。
+      </p>
+      <p>
+        索引会随赛事周期逐步更新。目前主要覆盖 1930 年至 2022 年的内容，2026 年美加墨世界杯的预选赛阶段信息也已开始收录。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">常见问题摘要</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">📌 这个索引和官方页面有什么区别？</div>
+          <div class="faq-a">官方页面侧重直播和实时服务，这里侧重于历史资料的结构化整理，方便对比查阅。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">📌 数据多久更新一次？</div>
+          <div class="faq-a">常规内容每季度复核一次，重大赛事期间会提高更新频率。所有改动会记录在版本日志中。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">📌 如何获取更详细的赛程或数据？</div>
+          <div class="faq-a">你可以直接访问 <a href="https://cn-go-sjb.com" class="highlight-link">世界杯</a> 相关页面，那里提供了完整的比分、积分表以及延伸阅读链接。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">📌 索引是否包含女足世界杯内容？</div>
+          <div class="faq-a">目前以男足世界杯为主，女足世界杯的独立索引正在筹备中，预计后续版本会加入。</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; margin-top: 2.2rem;">
+      <p style="margin-bottom: 0.8rem;">如果你对某个具体主题有更深的查阅需求，可以试试下面的入口</p>
+      <a href="https://cn-go-sjb.com" class="btn-outline">世界杯</a>
+    </section>
+
+    <footer class="footer-links">
+      <p>内容索引 · 基于公开资料整理 · 仅供参考</p>
+      <p style="margin-top: 0.5rem;">
+        <a href="https://cn-go-sjb.com">世界杯</a> — 赛程 · 数据 · 档案
+      </p>
+      <p style="margin-top: 0.8rem; font-size: 0.8rem; color: #7f95ad;">© 2025 · 索引版</p>
+    </footer>
+
+  </div>
+</body>
+</html>
